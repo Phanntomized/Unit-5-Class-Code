@@ -24,24 +24,16 @@ def input():
 def main(name="John",color="yellow"):
     print(f"{name.title()} the fierce, {color.lower()} eyed warrior")
 
-def blackjack():
-    card = 0
-    eleven = False
-    num = 0
-    import random
-    for i in range(3):
-        num = random.randint(1,11)
-        if num == 11:
-            eleven = True
-        card = card + num
-    if card <= 21:
-        print(str(card))
-    elif card > 21 and eleven:
-        print(str(card-10))
-    elif card > 21 and not eleven:
-        print("BUST")
-    else:
+def blackjack(a,b,c):
+    if 1>a or a>12 or 1>b or b>12 or 1>c or c>12:
         print("ERROR")
+    else:
+        if a+b+c <= 21:
+            print(str(a+b+c))
+        elif a+b+c > 21 and a==11 or b==11 or c==11:
+            print(str(a+b+c-10))
+        elif a+b+c > 21 and not a==11 or b==11 or c==11:
+            print("BUST")
 
 if __name__ == "__main__":
-    blackjack()
+    blackjack(11,10,3)
